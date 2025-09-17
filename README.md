@@ -17,7 +17,7 @@ Note: Pretrained model weights will be released later to reproduce the results.
    ```bash
    experiments/model_output/
 3. In the Evolution Notebook (inside the notebooks/ folder), update the path to the weights and run evaluation to reproduce our results.
-4.  
+ 
 ## Installation
 
 ```bash
