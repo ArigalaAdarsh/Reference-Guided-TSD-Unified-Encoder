@@ -1,0 +1,42 @@
+[2025-08-22 12:14:10] Storing files in experiments/Join_fusion/2025-08-22_12-14-08_689e5fa07f2311f087173cecefb1a652
+[2025-08-22 12:14:10] batch_size: 16
+[2025-08-22 12:14:10] data_args:
+[2025-08-22 12:14:10]   mode: stratified
+[2025-08-22 12:14:10] early_stop: 8
+[2025-08-22 12:14:10] epochs: 30
+[2025-08-22 12:14:10] label: /home/ananth/Audio_Search/extracted_files_1.tsv
+[2025-08-22 12:14:10] loss_ce: CELoss
+[2025-08-22 12:14:10] loss_sed: BCELoss
+[2025-08-22 12:14:10] lr_: 5.0e-05
+[2025-08-22 12:14:10] model: Join_fusion
+[2025-08-22 12:14:10] model_args:
+[2025-08-22 12:14:10]   temppool: linear
+[2025-08-22 12:14:10] num_workers: 4
+[2025-08-22 12:14:10] optimizer: AdamW
+[2025-08-22 12:14:10] optimizer_args:
+[2025-08-22 12:14:10]   lr: 0.0001
+[2025-08-22 12:14:10] outputpath: experiments
+[2025-08-22 12:14:10] postprocessing: median
+[2025-08-22 12:14:10] sampler: MinimumOccupancySampler
+[2025-08-22 12:14:10] save: one
+[2025-08-22 12:14:10] scale: 2
+[2025-08-22 12:14:10] scheduler_args:
+[2025-08-22 12:14:10]   factor: 0.1
+[2025-08-22 12:14:10]   patience: 3
+[2025-08-22 12:14:10] shuffle: false
+[2025-08-22 12:14:10] spk_emb_file_path: /home/ananth/Audio_Search/query_embeddings.txt
+[2025-08-22 12:14:10] test_data: /home/ananth/Audio_Search/testing_1.h5
+[2025-08-22 12:14:10] train_data: /home/ananth/Audio_Search/training.h5
+[2025-08-22 12:14:10] transforms:
+[2025-08-22 12:14:10] - freqmask
+[2025-08-22 12:14:10] - timemask
+[2025-08-22 12:14:10] - shift
+[2025-08-22 12:14:10] 
+[2025-08-22 12:14:10] Running on device cuda
+[2025-08-22 12:14:10] Transforms:
+[2025-08-22 12:14:10] Sequential(
+[2025-08-22 12:14:10]   (0): FreqMask()
+[2025-08-22 12:14:10]   (1): TimeMask()
+[2025-08-22 12:14:10]   (2): TimeShift()
+[2025-08-22 12:14:10] )
+[2025-08-22 12:14:10] Using Sampler {'shuffle': True}

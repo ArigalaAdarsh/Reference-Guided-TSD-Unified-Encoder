@@ -1,0 +1,126 @@
+[2025-08-20 16:16:43] Storing files in experiments/Join_fusion/2025-08-20_16-16-08_f5e4b0847db211f0835c3cecefb1a652
+[2025-08-20 16:16:43] batch_size: 16
+[2025-08-20 16:16:43] data_args:
+[2025-08-20 16:16:43]   mode: stratified
+[2025-08-20 16:16:43] early_stop: 8
+[2025-08-20 16:16:43] epochs: 30
+[2025-08-20 16:16:43] label: /home/ananth/Audio_Search/extracted_files_1.tsv
+[2025-08-20 16:16:43] loss_ce: CELoss
+[2025-08-20 16:16:43] loss_sed: BCELoss
+[2025-08-20 16:16:43] lr_: 5.0e-05
+[2025-08-20 16:16:43] model: Join_fusion
+[2025-08-20 16:16:43] model_args:
+[2025-08-20 16:16:43]   temppool: linear
+[2025-08-20 16:16:43] num_workers: 4
+[2025-08-20 16:16:43] optimizer: AdamW
+[2025-08-20 16:16:43] optimizer_args:
+[2025-08-20 16:16:43]   lr: 0.0001
+[2025-08-20 16:16:43] outputpath: experiments
+[2025-08-20 16:16:43] postprocessing: median
+[2025-08-20 16:16:43] sampler: MinimumOccupancySampler
+[2025-08-20 16:16:43] save: one
+[2025-08-20 16:16:43] scale: 2
+[2025-08-20 16:16:43] scheduler_args:
+[2025-08-20 16:16:43]   factor: 0.1
+[2025-08-20 16:16:43]   patience: 3
+[2025-08-20 16:16:43] shuffle: false
+[2025-08-20 16:16:43] spk_emb_file_path: /home/ananth/Audio_Search/query_embeddings.txt
+[2025-08-20 16:16:43] test_data: /home/ananth/Audio_Search/testing_1.h5
+[2025-08-20 16:16:43] train_data: /home/ananth/Audio_Search/training.h5
+[2025-08-20 16:16:43] transforms:
+[2025-08-20 16:16:43] - freqmask
+[2025-08-20 16:16:43] - timemask
+[2025-08-20 16:16:43] - shift
+[2025-08-20 16:16:43] 
+[2025-08-20 16:16:43] Running on device cuda
+[2025-08-20 16:16:43] Transforms:
+[2025-08-20 16:16:43] Sequential(
+[2025-08-20 16:16:43]   (0): FreqMask()
+[2025-08-20 16:16:43]   (1): TimeMask()
+[2025-08-20 16:16:43]   (2): TimeShift()
+[2025-08-20 16:16:43] )
+[2025-08-20 16:16:43] Using Sampler {'shuffle': True}
+[2025-08-20 16:16:48] AdamW (
+[2025-08-20 16:16:48] Parameter Group 0
+[2025-08-20 16:16:48]     amsgrad: False
+[2025-08-20 16:16:48]     betas: (0.9, 0.999)
+[2025-08-20 16:16:48]     capturable: False
+[2025-08-20 16:16:48]     differentiable: False
+[2025-08-20 16:16:48]     eps: 1e-08
+[2025-08-20 16:16:48]     foreach: None
+[2025-08-20 16:16:48]     fused: None
+[2025-08-20 16:16:48]     lr: 0.0001
+[2025-08-20 16:16:48]     maximize: False
+[2025-08-20 16:16:48]     weight_decay: 0.01
+[2025-08-20 16:16:48] )
+[2025-08-20 16:16:48] Join_fusion(
+[2025-08-20 16:16:48]   (detection): CDur_fusion(
+[2025-08-20 16:16:48]     (gru): GRU(2048, 768, batch_first=True, bidirectional=True)
+[2025-08-20 16:16:48]     (fusion): Fusion(
+[2025-08-20 16:16:48]       (fuse_layer1): conv1d(
+[2025-08-20 16:16:48]         (conv): Conv1d(2048, 8192, kernel_size=(1,), stride=(1,))
+[2025-08-20 16:16:48]         (act): ReLU()
+[2025-08-20 16:16:48]       )
+[2025-08-20 16:16:48]       (fuse_layer2): conv1d(
+[2025-08-20 16:16:48]         (conv): Conv1d(2048, 8192, kernel_size=(1,), stride=(1,))
+[2025-08-20 16:16:48]         (act): ReLU()
+[2025-08-20 16:16:48]       )
+[2025-08-20 16:16:48]       (avg_pool): AvgPool1d(kernel_size=(4,), stride=(4,), padding=(0,))
+[2025-08-20 16:16:48]     )
+[2025-08-20 16:16:48]     (fc): Linear(in_features=1536, out_features=1536, bias=True)
+[2025-08-20 16:16:48]     (outputlayer): Linear(in_features=1536, out_features=2, bias=True)
+[2025-08-20 16:16:48]   )
+[2025-08-20 16:16:48]   (AudioEncoder): Cnn14(
+[2025-08-20 16:16:48]     (spectrogram_extractor): Spectrogram(
+[2025-08-20 16:16:48]       (stft): STFT(
+[2025-08-20 16:16:48]         (conv_real): Conv1d(1, 513, kernel_size=(1024,), stride=(320,), bias=False)
+[2025-08-20 16:16:48]         (conv_imag): Conv1d(1, 513, kernel_size=(1024,), stride=(320,), bias=False)
+[2025-08-20 16:16:48]       )
+[2025-08-20 16:16:48]     )
+[2025-08-20 16:16:48]     (logmel_extractor): LogmelFilterBank()
+[2025-08-20 16:16:48]     (spec_augmenter): SpecAugmentation(
+[2025-08-20 16:16:48]       (time_dropper): DropStripes()
+[2025-08-20 16:16:48]       (freq_dropper): DropStripes()
+[2025-08-20 16:16:48]     )
+[2025-08-20 16:16:48]     (bn0): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+[2025-08-20 16:16:48]     (conv_block1): ConvBlock(
+[2025-08-20 16:16:48]       (conv1): Conv2d(1, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+[2025-08-20 16:16:48]       (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+[2025-08-20 16:16:48]       (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+[2025-08-20 16:16:48]       (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+[2025-08-20 16:16:48]     )
+[2025-08-20 16:16:48]     (conv_block2): ConvBlock(
+[2025-08-20 16:16:48]       (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+[2025-08-20 16:16:48]       (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+[2025-08-20 16:16:48]       (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+[2025-08-20 16:16:48]       (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+[2025-08-20 16:16:48]     )
+[2025-08-20 16:16:48]     (conv_block3): ConvBlock(
+[2025-08-20 16:16:48]       (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+[2025-08-20 16:16:48]       (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+[2025-08-20 16:16:48]       (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+[2025-08-20 16:16:48]       (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+[2025-08-20 16:16:48]     )
+[2025-08-20 16:16:48]     (conv_block4): ConvBlock(
+[2025-08-20 16:16:48]       (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+[2025-08-20 16:16:48]       (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+[2025-08-20 16:16:48]       (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+[2025-08-20 16:16:48]       (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+[2025-08-20 16:16:48]     )
+[2025-08-20 16:16:48]     (conv_block5): ConvBlock(
+[2025-08-20 16:16:48]       (conv1): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+[2025-08-20 16:16:48]       (conv2): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+[2025-08-20 16:16:48]       (bn1): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+[2025-08-20 16:16:48]       (bn2): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+[2025-08-20 16:16:48]     )
+[2025-08-20 16:16:48]     (conv_block6): ConvBlock(
+[2025-08-20 16:16:48]       (conv1): Conv2d(1024, 2048, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+[2025-08-20 16:16:48]       (conv2): Conv2d(2048, 2048, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+[2025-08-20 16:16:48]       (bn1): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+[2025-08-20 16:16:48]       (bn2): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+[2025-08-20 16:16:48]     )
+[2025-08-20 16:16:48]     (fc1): Linear(in_features=2048, out_features=2048, bias=True)
+[2025-08-20 16:16:48]     (fc_audioset): Linear(in_features=2048, out_features=527, bias=True)
+[2025-08-20 16:16:48]   )
+[2025-08-20 16:16:48] )
+[2025-08-20 16:16:48] Using 3 GPUs!

@@ -1,0 +1,43 @@
+[2025-09-05 23:31:05] Storing files in experiments/Join_fusion/2025-09-05_23-31-09_4afe984c8a8211f0af873cecefb1a652
+[2025-09-05 23:31:05] batch_size: 16
+[2025-09-05 23:31:05] cv_data: /home/ananth/Targeted_Audio_Search_Phase_2/data/ydc_data/urban_target_detection_validate_32k_224_mels.h5
+[2025-09-05 23:31:05] data_args:
+[2025-09-05 23:31:05]   mode: stratified
+[2025-09-05 23:31:05] early_stop: 8
+[2025-09-05 23:31:05] epochs: 30
+[2025-09-05 23:31:05] label: /home/ananth/Target-sound-event-detection/data/flists/urban_sed_test_strong.tsv
+[2025-09-05 23:31:05] loss_ce: CELoss
+[2025-09-05 23:31:05] loss_sed: BCELoss
+[2025-09-05 23:31:05] lr_: 5.0e-05
+[2025-09-05 23:31:05] model: Join_fusion
+[2025-09-05 23:31:05] model_args:
+[2025-09-05 23:31:05]   temppool: linear
+[2025-09-05 23:31:05] num_workers: 4
+[2025-09-05 23:31:05] optimizer: AdamW
+[2025-09-05 23:31:05] optimizer_args:
+[2025-09-05 23:31:05]   lr: 0.0001
+[2025-09-05 23:31:05] outputpath: experiments
+[2025-09-05 23:31:05] postprocessing: median
+[2025-09-05 23:31:05] sampler: MinimumOccupancySampler
+[2025-09-05 23:31:05] save: one
+[2025-09-05 23:31:05] scale: 2
+[2025-09-05 23:31:05] scheduler_args:
+[2025-09-05 23:31:05]   factor: 0.1
+[2025-09-05 23:31:05]   patience: 3
+[2025-09-05 23:31:05] shuffle: false
+[2025-09-05 23:31:05] spk_emb_file_path: /home/ananth/Targeted_Audio_Search_Phase_2/feature/mel_path_modified.h5
+[2025-09-05 23:31:05] test_data: /home/ananth/Targeted_Audio_Search_Phase_2/data/ydc_data/urban_target_detection_test_32k_224_mels.h5
+[2025-09-05 23:31:05] train_data: /home/ananth/Targeted_Audio_Search_Phase_2/data/ydc_data/urban_target_detection_train_32k_224_mels.h5
+[2025-09-05 23:31:05] transforms:
+[2025-09-05 23:31:05] - freqmask
+[2025-09-05 23:31:05] - timemask
+[2025-09-05 23:31:05] - shift
+[2025-09-05 23:31:05] 
+[2025-09-05 23:31:05] Running on device cuda
+[2025-09-05 23:31:05] Transforms:
+[2025-09-05 23:31:05] Sequential(
+[2025-09-05 23:31:05]   (0): FreqMask()
+[2025-09-05 23:31:05]   (1): TimeMask()
+[2025-09-05 23:31:05]   (2): TimeShift()
+[2025-09-05 23:31:05] )
+[2025-09-05 23:31:05] Using Sampler {'shuffle': True}

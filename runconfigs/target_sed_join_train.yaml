@@ -1,0 +1,34 @@
+train_data: ./data/ydc_data/urban_target_detection_train_32k_224_mels.h5
+cv_data: ./data/ydc_data/urban_target_detection_validate_32k_224_mels.h5
+test_data: ./data/ydc_data/urban_target_detection_test_32k_224_mels.h5
+spk_emb_file_path: ./feature/mel_path_modified.h5
+batch_size: 16
+num_workers: 4 # set according to your system
+data_args:
+    mode: stratified # Stratified split to train and cv
+optimizer: AdamW
+label: ./data/flists/urban_sed_test_strong.tsv # no negative sampling is used (if negative examples are not used, then we are using this as label file, otherwise add neg one will be used)
+lr_: 0.00005
+optimizer_args:
+    lr: 0.0001
+epochs: 30 #30
+model: Join_fusion
+model_args: #Currently None, no additional args
+    temppool: linear
+outputpath: experiments/UrbanSED
+transforms: [freqmask, timemask, shift]
+shuffle: False
+sampler: MinimumOccupancySampler
+loss_sed: BCELoss  # see why BCE loss is used since we are just taking [:,:,0], instead we can use cross entropy loss
+loss_ce: CELoss
+save: one
+early_stop: 8      
+scheduler_args:
+    patience: 3
+    factor: 0.1
+outputpath: experiments
+scale: 2
+postprocessing: median  # used for post processing the outputs of the network
+# spk_emb_file_path ---> h5 file that have keys as [filename, filepath] of urbansound-8k dataset
+# threshold: None # used for post processing the outputs of the network, set it according to need, in code (main_join_train.py)it has set to default 0.37 for binarising the frame level output 
+                  # don't set threshold as None here, because it will be parsed as string type by yaml parser. Thresold is decided later on after training the model, then set it  
