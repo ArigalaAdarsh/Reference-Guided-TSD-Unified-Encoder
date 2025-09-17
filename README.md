@@ -2,13 +2,22 @@
 
 This repository provides the **official implementation** of our unified encoder model for **Target Sound Detection (TSD)**, submitted to **ICASSP 2026**.  
 It includes training and evaluation for the **URBAN-SED** and **URBAN*8K** datasets.  
-
+Note: Pretrained model weights will be released later to reproduce the results.
 ## Datasets
 - **UrbanSound8K**: [Download here](https://urbansounddataset.weebly.com/urbansound8k.html)  
 - **URBAN-SED**: [Download here](https://zenodo.org/records/1324404)  
 - Keep these in the datasets/URBAN-SED
 - datasets/ UrbanSound8K
 
+#  Download Pre-trained Weights
+
+1. Download the pre-trained weights from [Google Drive](#).  
+2. Place the downloaded weights into the following directory:
+
+   ```bash
+   experiments/model_output/
+3. In the Evolution Notebook (inside the notebooks/ folder), update the path to the weights and run evaluation to reproduce our results.
+4.  
 ## Installation
 
 ```bash
