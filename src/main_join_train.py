@@ -341,8 +341,8 @@ class Runner(object):
                         outputdim=2, load_pretrained = False, **config_param['model_args'])   # it instantiates the model, getattr(models, config_param['model']) will return the model class 
         model.load_state_dict(model_parameters)
         model.to(DEVICE)
-        time_ratio = 10.0/500
-        #time_ratio = 10.0/1001 # fro convnext
+        #time_ratio = 10.0/500
+        time_ratio = 10.0/1001 # fro convnext
         threshold = config_parameters.get('threshold', None)
         postprocessing = config_parameters.get('postprocessing', 'double')  
         window_size = config_parameters.get('window_size', None)
