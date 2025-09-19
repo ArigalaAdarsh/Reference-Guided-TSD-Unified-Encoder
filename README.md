@@ -52,6 +52,21 @@ what_type = 'train'  # options: 'train', 'val', 'test'
 ```
 and update the respective dataset path locations.
 
+To experiment with the Strong Plus dataset setup, prepare the dataset by running:
+
+```bash
+python data/extract_convnext_feature.py
+```
+
+Inside the script, change the parameters accordingly:
+
+```python
+what_type = 'train'  # options: 'train', 'val', 'test'
+```
+and update the respective dataset path locations.
+
+
+
 ## Training
 To train the model, run:
 
