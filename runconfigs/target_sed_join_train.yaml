@@ -7,7 +7,7 @@ num_workers: 4 # set according to your system
 data_args:
     mode: stratified # Stratified split to train and cv
 optimizer: AdamW
-label: ./data/flists/urban_sed_test_strong.tsv # no negative sampling is used (if negative examples are not used, then we are using this as label file, otherwise add neg one will be used)
+label: ./data/flists/urban_sed_test_strong.tsv # no negative sampling is used   #  ./data/flists/test_strong_plus.tsv if negative samples are used
 lr_: 0.00005
 optimizer_args:
     lr: 0.0001
