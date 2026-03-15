@@ -157,7 +157,7 @@ if __name__ == "__main__":
     # ref_mel = torch.rand(1,1001,104) # reference (mel+mfcc) features
     
     experiment_path = "./experiments/Join_fusion/2024-08-10_17-15-08_03c282e8570e11efaca83cecefb1a652/" 
-    time_ratio = 10.0/500
+    time_ratio = 10.0/1001
 
     config_file = "./runconfigs/target_sed_join_train.yaml"
     config_parameters = utils.parse_config_or_kwargs(config_file)
