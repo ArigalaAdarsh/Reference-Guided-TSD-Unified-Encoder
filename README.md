@@ -21,7 +21,7 @@ Note: Pretrained model weights will be released later to reproduce the results.
 ## Installation
 
 ```bash
-git clone https://github.com/your-username/Reference-Guided-TSD-Unified-Encoder.git
+git clone https://github.com/ArigalaAdarsh/Reference-Guided-TSD-Unified-Encoder.git
 cd Reference-Guided-TSD-Unified-Encoder
 ```
 
